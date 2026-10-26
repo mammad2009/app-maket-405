@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ir.peugeot405.control" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>Peugeot 405</name>
+  <description>Dedicated control app for the Peugeot 405 model</description>
+  <content src="index.html" />
+  <access origin="*" />
+  <allow-intent href="https://*/*" />
+  <preference name="Orientation" value="portrait" />
+  <preference name="BackgroundColor" value="0xff0b0e13" />
+  <preference name="android-minSdkVersion" value="24" />
+  <platform name="android">
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+      <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    </config-file>
+  </platform>
+</widget>

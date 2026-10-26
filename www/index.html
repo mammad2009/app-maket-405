@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0e13">
+<title>Peugeot 405</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0e13;--panel:#151a22;--panel2:#1b212b;--line:#ffffff1a;--silver:#cfd6e0;--dim:#8a94a3;--amber:#ffb347;--amber2:#ff8a1f;--blue:#2c5fc4;--ok:#5fd68a;--bad:#ff5d5d;
+--disp:'Barlow Condensed','Arial Narrow',sans-serif;--body:'Vazirmatn','Segoe UI',Tahoma,sans-serif;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--silver);font:15px/1.6 var(--body);overflow:hidden}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+#app{position:fixed;inset:0;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);background:radial-gradient(120% 60% at 50% 110%,#ff8a1f26,transparent 60%),radial-gradient(80% 50% at 90% -10%,#2c5fc433,transparent 60%),var(--bg)}
+section.scr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s;padding:24px}
+section.off{opacity:0;visibility:hidden;pointer-events:none}
+/* splash */
+#splash svg{width:132px;height:156px;overflow:visible}
+#splash .sh{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.8s .2s ease forwards}
+#splash .sh2{fill:none;stroke:var(--silver);stroke-width:.8;opacity:0;animation:fade 1s 1.3s forwards}
+#splash .n{font:700 40px var(--disp);fill:var(--amber);opacity:0;animation:fade 1s 1.2s forwards,glow 2.4s 2s infinite alternate;text-anchor:middle;letter-spacing:2px}
+#lg{display:none;width:132px;height:156px;object-fit:contain}
+.wm{font:600 30px var(--disp);letter-spacing:.9em;margin-inline-start:.9em;opacity:0;animation:track 2s 1.1s cubic-bezier(.2,.7,.2,1) forwards;color:#fff}
+.tg{color:var(--dim);margin-top:10px;opacity:0;animation:fade 1s 2.2s forwards}
+.sweep{position:absolute;top:0;bottom:0;width:30%;background:linear-gradient(100deg,transparent,#ffb34726,transparent);transform:translateX(-120%);animation:sw 1.6s 1.6s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}
+@keyframes track{from{opacity:0;letter-spacing:1.2em}to{opacity:1;letter-spacing:.36em}}
+@keyframes glow{to{filter:drop-shadow(0 0 8px var(--amber2))}}@keyframes sw{to{transform:translateX(420%)}}
+/* connect */
+.rings{position:relative;width:200px;height:200px;margin-bottom:22px}
+.rings i{position:absolute;inset:0;border:1px solid var(--amber);border-radius:50%;opacity:0;animation:rg 3s infinite}
+.rings i:nth-child(2){animation-delay:1s}.rings i:nth-child(3){animation-delay:2s}
+.rings b{position:absolute;inset:70px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font:700 26px var(--disp);color:var(--amber);border:1px solid var(--line)}
+@keyframes rg{from{transform:scale(.4);opacity:.7}to{transform:scale(1.1);opacity:0}}
+h1{font:600 26px var(--disp);letter-spacing:.06em;margin:0 0 4px;color:#fff;text-align:center}
+.sub{color:var(--dim);text-align:center;margin:0 0 16px;max-width:320px}
+.devs{width:100%;max-width:360px;display:flex;flex-direction:column;gap:8px;max-height:30vh;overflow:auto}
+.dev{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.dev small{color:var(--dim);direction:ltr}.dev.hc{border-color:var(--amber)}
+.btn{padding:13px 26px;border-radius:999px;background:linear-gradient(180deg,var(--amber),var(--amber2));color:#1a1000;font-weight:800;margin-top:14px}
+.btn.g{background:none;color:var(--silver);border:1px solid var(--line)}
+/* main */
+#main{justify-content:flex-start;align-items:stretch;padding:0}
+.top{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+.brand{font:700 22px var(--disp);letter-spacing:.14em;color:#fff}.brand em{font-style:normal;color:var(--amber)}
+.tr{display:flex;gap:8px;align-items:center}
+.pill{display:flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-size:13px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--bad)}.pill.on i{background:var(--ok);box-shadow:0 0 8px var(--ok)}.pill.demo i{background:var(--amber)}
+#pg{flex:1;overflow:auto;padding:4px 18px 18px}
+.nav{display:flex;border-top:1px solid var(--line);background:#0b0e13e6;backdrop-filter:blur(10px)}
+.nav button{flex:1;padding:9px 0 7px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;color:var(--dim)}
+.nav button.a{color:var(--amber)}svg.ic{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hero{padding:10px 4px 18px;display:flex;align-items:flex-end;justify-content:space-between}
+.hero b{font:700 92px/0.85 var(--disp);color:transparent;-webkit-text-stroke:1.5px var(--amber);letter-spacing:2px}
+.hero span{color:var(--dim);text-align:end;font-size:13px}.hero span strong{display:block;color:#fff;font-size:17px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{padding:18px 14px;border-radius:20px 6px 20px 6px;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);text-align:start;display:flex;flex-direction:column;gap:14px;min-height:112px}
+.tile:nth-child(even){border-radius:6px 20px 6px 20px}.tile .ic{color:var(--amber);width:30px;height:30px}.tile b{font-weight:600}
+.tile small{color:var(--dim);font-size:12px;display:block;line-height:1.4}
+.tile:active,.sw:active,.chip:active{transform:scale(.97)}
+h2{font:600 20px var(--disp);letter-spacing:.08em;color:#fff;margin:6px 0 12px}
+/* remote */
+.gs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gauge{background:var(--panel);border:1px solid var(--line);border-radius:30px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hold{width:100%;height:58px;border-radius:22px;background:var(--panel2);border:1px solid var(--line);display:grid;place-items:center;color:var(--silver);touch-action:none}
+.hold:active,.hold.p{background:linear-gradient(180deg,var(--amber),var(--amber2));color:#1a1000}
+.col{position:relative;width:64px;height:170px;border-radius:32px;background:#0a0d12;border:1px solid var(--line);overflow:hidden;box-shadow:inset 0 0 20px #000}
+.col div{position:absolute;inset:auto 0 0 0;background:linear-gradient(0deg,var(--amber2),var(--amber));transition:height .08s linear;box-shadow:0 0 18px var(--amber2)}
+.col span{position:absolute;inset:0;display:grid;place-items:center;font:700 22px var(--disp);color:#fff;mix-blend-mode:difference}
+.cn{color:var(--dim);font-size:13px}.chips{display:flex;gap:8px;width:100%}
+.chip{flex:1;padding:8px 0;border-radius:12px;background:var(--panel2);border:1px solid var(--line);font-size:13px}
+.both{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+/* switches */
+.sws{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);text-align:start}
+.sw i{width:34px;height:20px;border-radius:12px;background:#0a0d12;border:1px solid var(--line);position:relative;flex:none}
+.sw i:after{content:"";position:absolute;top:2px;inset-inline-start:2px;width:14px;height:14px;border-radius:50%;background:var(--dim);transition:.2s}
+.sw.on{border-color:var(--amber);background:#ffb3471a}.sw.on i:after{inset-inline-start:16px;background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.big{width:100%;padding:22px;border-radius:22px;background:var(--panel);border:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;text-align:start}
+.big.go{border-color:var(--amber)}.big small{display:block;color:var(--dim)}
+.row{display:flex;gap:8px;margin-bottom:12px}
+input{flex:1;min-width:0;padding:12px 14px;border-radius:14px;background:var(--panel);border:1px solid var(--line);color:#fff;font:inherit;direction:ltr;user-select:text}
+.log{height:110px;overflow:auto;background:#07090d;border-radius:14px;border:1px solid var(--line);padding:8px 12px;font:12px/1.7 ui-monospace,monospace;direction:ltr;color:var(--ok);margin-bottom:14px}
+.cb{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.cb button{position:relative;padding:14px 6px;border-radius:14px;background:var(--panel2);border:1px solid var(--line);font-size:13px}
+.cb button u{position:absolute;top:-6px;inset-inline-end:-4px;width:20px;height:20px;border-radius:50%;background:var(--bad);color:#fff;text-decoration:none;font-size:12px;line-height:20px}
+.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);background:#000c;border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-size:13px;opacity:0;transition:.3s;pointer-events:none;direction:ltr}
+.toast.s{opacity:1}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+ <section id="splash" class="scr">
+  <div class="sweep"></div>
+  <img id="lg" src="logo.svg" alt="" onload="this.style.display='block';document.getElementById('emb').style.display='none'">
+  <svg id="emb" viewBox="0 0 100 118"><path class="sh" d="M50 4 L94 17 V58 C94 83 73 100 50 113 C27 100 6 83 6 58 V17 Z"/><path class="sh2" d="M50 11 L87 22 V57 C87 78 69 92 50 103 C31 92 13 78 13 57 V22 Z"/><text class="n" x="50" y="68">405</text></svg>
+  <div class="wm">PEUGEOT</div><div class="tg" id="tg"></div>
+ </section>
+ <section id="connect" class="scr off">
+  <div class="rings"><i></i><i></i><i></i><b>405</b></div>
+  <h1 id="ch"></h1><p class="sub" id="cs"></p>
+  <div class="devs" id="devs"></div>
+  <button class="btn" id="rescan"></button><button class="btn g" id="demo"></button>
+ </section>
+ <section id="main" class="scr off">
+  <div class="top"><div class="brand">PEUGEOT <em>405</em></div><div class="tr"><button class="pill" id="lang"></button><button class="pill" id="st"><i></i><span></span></button></div></div>
+  <div id="pg"></div>
+  <nav class="nav" id="nav"></nav>
+ </section>
+ <div class="toast" id="toast"></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const TX={
+fa:{tg:'ساخته‌شده فقط برای پژو ۴۰۵',ch:'اتصال به خودرو',cs:'بلوتوث HC-05 ماکت را از لیست زیر انتخاب کنید. اگر هنوز جفت نشده، اول در تنظیمات گوشی جفتش کنید.',rescan:'جستجوی دوباره',demo:'حالت نمایشی (بدون اتصال)',nodev:'دستگاهی پیدا نشد. این برنامه برای اتصال بلوتوث کلاسیک باید به‌صورت اپ نصب شود (نه داخل مرورگر).',
+conn:'در حال اتصال…',fail:'اتصال برقرار نشد. ماکت روشن است؟',on:'متصل',off:'قطع',demoL:'نمایشی',
+n405:'۴۰۵',sub:'کنترل اختصاصی',hello:'خوش آمدید',
+home:'خانه',remote:'تعلیق',lights:'چراغ‌ها',show:'نمایش',con:'کنسول',guard:'نگهبان',
+tRemote:'تعلیق و ارتفاع',dRemote:'بالا و پایین بردن بدنه',tLights:'چراغ‌ها و راهنما',dLights:'ثابت، راهنما، کیت عربی',tShow:'نمایش و رقص',dShow:'رقص آهنگین و تور چشم‌ها',tGuard:'نگهبان',dGuard:'قفل و حالت هشدار',tCon:'کنسول و دکمه‌ها',dCon:'ارسال کد دلخواه',
+front:'جلو',rear:'عقب',min:'پایین‌ترین',max:'بالاترین',both:'هر دو',up:'بالا',down:'پایین',est:'ارتفاع تقریبی',
+small:'جلو کوچک',high:'نور بالا',rearL:'چراغ عقب',tr:'راهنمای راست',tl:'راهنمای چپ',haz:'فلاشر',alt:'نوبتی',arab:'کیت عربی',next:'افکت بعدی',
+dance:'رقص آهنگین',danceD:'سرووها و چشم‌ها با ریتم',start:'شروع',stop:'توقف',tour:'تور صحنه‌ها',tourD:'نمایش همه‌ی حالت‌های چشم',run:'اجرا',
+lock:'قفل و نگهبانی',lockD:'چشم‌ها بسته می‌شوند و اسکنر روشن می‌شود',unlock:'باز کردن قفل',
+send:'ارسال',ph:'مثلاً F یا e',cust:'دکمه‌های من',add:'افزودن دکمه',name:'نام دکمه',code:'کد',edit:'ویرایش',done:'تمام',log:'ارسال‌شده‌ها'},
+en:{tg:'Built for the Peugeot 405, and only the 405',ch:'Connect to your car',cs:'Pick the model’s HC-05 Bluetooth below. If it isn’t paired yet, pair it in your phone settings first.',rescan:'Scan again',demo:'Demo mode (no connection)',nodev:'No devices found. Classic Bluetooth needs the installed app, not a browser tab.',
+conn:'Connecting…',fail:'Could not connect. Is the model powered on?',on:'Connected',off:'Offline',demoL:'Demo',
+n405:'405',sub:'Dedicated control',hello:'Welcome aboard',
+home:'Home',remote:'Suspension',lights:'Lights',show:'Show',con:'Console',guard:'Guard',
+tRemote:'Suspension & height',dRemote:'Raise and lower the body',tLights:'Lights & signals',dLights:'Position, signals, Arabic kit',tShow:'Show & dance',dShow:'Beat dance and eye tour',tGuard:'Guard',dGuard:'Lock and alarm mode',tCon:'Console & buttons',dCon:'Send your own codes',
+front:'Front',rear:'Rear',min:'Lowest',max:'Highest',both:'Both',up:'Up',down:'Down',est:'Estimated height',
+small:'Front position',high:'High beam',rearL:'Rear lights',tr:'Right signal',tl:'Left signal',haz:'Hazard',alt:'Alternate',arab:'Arabic kit',next:'Next effect',
+dance:'Beat dance',danceD:'Servos and eyes in rhythm',start:'Start',stop:'Stop',tour:'Scene tour',tourD:'Play every eye scene',run:'Run',
+lock:'Lock & guard',lockD:'Eyes close and the scanner starts',unlock:'Unlock',
+send:'Send',ph:'e.g. F or e',cust:'My buttons',add:'Add button',name:'Button name',code:'Code',edit:'Edit',done:'Done',log:'Sent'}};
+let S={lang:'fa',page:'home',demo:false,ok:false,on:{},pf:80,pb:84,edit:false,cb:[]};
+try{S.lang=localStorage.getItem('p405l')||'fa';S.cb=JSON.parse(localStorage.getItem('p405cb')||'[]')}catch(e){}
+if(!S.cb.length)S.cb=[{n:'Hi',c:'3'},{n:'Dance',c:'M'}];
+const t=k=>TX[S.lang][k]||k;
+const PA={home:'M3 11l9-8 9 8M5 10v10h14V10',remote:'M12 3l5 5H7zM12 21l5-5H7z',lights:'M12 7a5 5 0 100 10 5 5 0 000-10zM12 1v3M12 20v3M1 12h3M20 12h3',show:'M3 12h3l3-8 4 16 3-8h5',guard:'M6 11h12v9H6zM8 11V8a4 4 0 018 0v3',con:'M4 6l6 6-6 6M12 18h8',up:'M6 15l6-6 6 6',down:'M6 9l6 6 6-6'};
+const ic=n=>`<svg class="ic" viewBox="0 0 24 24"><path d="${PA[n]}"/></svg>`;
+/* ---- transport ---- */
+const SP=()=>window.bluetoothClassicSerial||window.bluetoothSerial;
+const BT={list:()=>new Promise(r=>SP()?SP().list(r,()=>r([])):r([])),
+ connect:a=>new Promise((y,n)=>SP().connect(a,y,n)),
+ send(s){logTx(s);if(S.ok&&!S.demo&&SP())SP().write(s,()=>{},()=>{})}};
+let LOG=[];function logTx(s){LOG.push(new Date().toTimeString().slice(0,8)+'  '+s);LOG=LOG.slice(-30);const l=$('#log');if(l){l.innerHTML=LOG.join('<br>');l.scrollTop=1e5}
+ const o=$('#toast');o.textContent='→ '+s;o.classList.add('s');clearTimeout(logTx.h);logTx.h=setTimeout(()=>o.classList.remove('s'),700);navigator.vibrate&&navigator.vibrate(8)}
+const send=s=>BT.send(s);
+/* ---- screens ---- */
+function setLang(l){S.lang=l;try{localStorage.setItem('p405l',l)}catch(e){}document.documentElement.lang=l;document.documentElement.dir=l=='fa'?'rtl':'ltr';
+ $('#tg').textContent=t('tg');$('#ch').textContent=t('ch');$('#cs').textContent=t('cs');$('#rescan').textContent=t('rescan');$('#demo').textContent=t('demo');
+ $('#lang').textContent=l=='fa'?'EN':'فارسی';status();renderNav();go(S.page)}
+function status(){const p=$('#st');p.className='pill'+(S.ok?(S.demo?' demo':' on'):'');p.querySelector('span').textContent=S.ok?(S.demo?t('demoL'):t('on')):t('off')}
+function show(id){['splash','connect','main'].forEach(x=>$('#'+x).classList.toggle('off',x!=id))}
+async function scan(){const d=$('#devs');d.innerHTML='';const L=await BT.list();
+ if(!L.length){d.innerHTML=`<p class="sub">${t('nodev')}</p>`;return}
+ L.forEach(x=>{const b=document.createElement('button');b.className='dev'+(/hc|405|peugeot/i.test(x.name)?' hc':'');b.innerHTML=`<span>${x.name||'?'}</span><small>${x.address||x.id}</small>`;b.onclick=()=>link(x.address||x.id);d.appendChild(b)})}
+async function link(a){$('#cs').textContent=t('conn');try{await BT.connect(a);S.ok=true;S.demo=false;enter()}catch(e){$('#cs').textContent=t('fail')}}
+function enter(){status();show('main');go('home')}
+const NAV=['home','remote','lights','show','con'];
+function renderNav(){$('#nav').innerHTML=NAV.map(n=>`<button data-go="${n}" class="${S.page==n?'a':''}">${ic(n)}<span>${t(n)}</span></button>`).join('')}
+function go(p){S.page=p;renderNav();$('#pg').innerHTML=PG[p]();$('#pg').scrollTop=0;if(p=='remote')gauges();if(p=='con'){const l=$('#log');l.innerHTML=LOG.join('<br>')}}
+/* ---- pages ---- */
+const tile=(p,i,a,b)=>`<button class="tile" data-go="${p}">${ic(i)}<span><b>${t(a)}</b><small>${t(b)}</small></span></button>`;
+const sw=(k,a)=>`<button class="sw${S.on[k]?' on':''}" data-sw="${k}"><span>${t(a)}</span><i></i></button>`;
+const hold=(c,d)=>`<button class="hold" data-h="${c}" data-d="${d}" aria-label="${c}">${ic(d>0?'up':'down')}</button>`;
+const gauge=(k,l,u,d,mn,mx)=>`<div class="gauge"><b>${t(l)}</b>${hold(u,1)}<div class="col"><div id="g${k}"></div><span id="v${k}"></span></div>${hold(d,-1)}<div class="chips"><button class="chip" data-c="${mx}">${t('max')}</button><button class="chip" data-c="${mn}">${t('min')}</button></div></div>`;
+const PG={
+home:()=>`<div class="hero"><b>${t('n405')}</b><span><strong>${t('hello')}</strong>${t('sub')}</span></div><div class="tiles">${tile('remote','remote','tRemote','dRemote')}${tile('lights','lights','tLights','dLights')}${tile('show','show','tShow','dShow')}${tile('guard','guard','tGuard','dGuard')}${tile('con','con','tCon','dCon')}<button class="tile" data-go="x"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v9M6.3 6.3a8 8 0 1011.4 0"/></svg><span><b>${S.ok?t('off'):t('on')}</b><small>HC-05</small></span></button></div>`,
+remote:()=>`<h2>${t('tRemote')}</h2><div class="gs">${gauge('F','front','F','B','1','2')}${gauge('B','rear','R','L','X','Z')}</div><div class="both">${hold('W',1)}${hold('D',-1)}</div><p class="cn" style="text-align:center">${t('est')} · ${t('both')}</p>`,
+lights:()=>`<h2>${t('tLights')}</h2><div class="sws">${sw('small','small')}${sw('high','high')}${sw('rear','rearL')}<span></span>${sw('tr','tr')}${sw('tl','tl')}${sw('haz','haz')}${sw('alt','alt')}${sw('arab','arab')}<button class="sw" data-c="o"><span>${t('next')}</span>${ic('down').replace('M6 9l6 6 6-6','M9 6l6 6-6 6')}</button></div>`,
+show:()=>`<h2>${t('tShow')}</h2><div class="big go"><span><b>${t('dance')}</b><small>${t('danceD')}</small></span><span style="display:flex;gap:8px"><button class="chip" style="padding:10px 16px" data-c="M">${t('start')}</button><button class="chip" style="padding:10px 16px" data-c="N">${t('stop')}</button></span></div><div class="big"><span><b>${t('tour')}</b><small>${t('tourD')}</small></span><button class="chip" style="flex:none;padding:10px 20px" data-c="T">${t('run')}</button></div>`,
+guard:()=>`<h2>${t('tGuard')}</h2><button class="big go" data-c="K"><span><b>${t('lock')}</b><small>${t('lockD')}</small></span>${ic('guard')}</button><button class="big" data-c="U"><span><b>${t('unlock')}</b></span>${ic('guard')}</button>`,
+con:()=>`<h2>${t('tCon')}</h2><div class="row"><input id="ci" placeholder="${t('ph')}" autocomplete="off"><button class="btn" style="margin:0;padding:10px 20px" id="cs2">${t('send')}</button></div><div class="log" id="log"></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">${t('cust')}</h2><button class="pill" data-ed>${S.edit?t('done'):t('edit')}</button></div><div class="cb" style="margin:12px 0">${S.cb.map((b,i)=>`<button data-c="${b.c.replace(/"/g,'&quot;')}" data-i="${i}">${esc(b.n)}${S.edit?'<u data-del="'+i+'">×</u>':''}</button>`).join('')}</div>
+<div class="row"><input id="an" placeholder="${t('name')}" style="direction:inherit"><input id="ac" placeholder="${t('code')}" style="max-width:90px"><button class="pill" data-add>${t('add')}</button></div>`};
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+/* ---- gauges (estimated from hold time) ---- */
+const R={F:[80,112],B:[84,115]};let hi=null;
+function gauges(){for(const k of['F','B']){const p=k=='F'?S.pf:S.pb,[a,b]=R[k],v=Math.round((p-a)/(b-a)*100);$('#g'+k).style.height=v+'%';$('#v'+k).textContent=v+'%'}}
+function step(cmd,d){const f={F:['pf',1],B:['pf',-1],R:['pb',1],L:['pb',-1],W:[0,1],D:[0,-1]}[cmd];if(!f)return;
+ const mv=(key,s)=>{const r=R[key=='pf'?'F':'B'];S[key]=Math.max(r[0],Math.min(r[1],S[key]+s))};
+ if(f[0])mv(f[0],f[1]);else{mv('pf',f[1]);mv('pb',f[1])}if(S.page=='remote')gauges()}
+function preset(c){const m={1:['pf',80],2:['pf',112],X:['pb',84],Z:['pb',115]}[c];if(m){S[m[0]]=m[1];if(S.page=='remote')gauges()}}
+/* ---- events ---- */
+const GRP=['tr','tl','haz','alt','arab'],CM={small:['3','4'],high:['5','6'],rear:['9','a'],tr:['e','f'],tl:['g','h'],haz:['7','8'],alt:['i','j'],arab:['o','p']};
+document.addEventListener('click',e=>{const q=e.target.closest('[data-go],[data-c],[data-sw],[data-ed],[data-add],[data-del],#cs2');if(!q)return;
+ if(q.dataset.del!=null){e.stopPropagation();S.cb.splice(+q.dataset.del,1);save();go('con');return}
+ if(q.dataset.go){if(q.dataset.go=='x'){S.ok=false;scan();show('connect')}else go(q.dataset.go);return}
+ if(q.dataset.sw){const k=q.dataset.sw,v=!S.on[k];if(v&&GRP.includes(k))GRP.forEach(g=>S.on[g]=false);S.on[k]=v;send(CM[k][v?0:1]);go('lights');return}
+ if(q.dataset.c!=null){if(q.dataset.c=='o'){GRP.forEach(g=>S.on[g]=false);S.on.arab=true}preset(q.dataset.c);send(q.dataset.c);if(q.dataset.c=='o')go('lights');return}
+ if('ed' in q.dataset){S.edit=!S.edit;go('con');return}
+ if(q.id=='cs2'){const v=$('#ci').value;if(v){send(v);$('#ci').value=''}return}
+ if('add' in q.dataset){const n=$('#an').value.trim(),c=$('#ac').value;if(n&&c){S.cb.push({n,c});save();go('con')}}});
+function save(){try{localStorage.setItem('p405cb',JSON.stringify(S.cb))}catch(e){}}
+document.addEventListener('pointerdown',e=>{const h=e.target.closest('[data-h]');if(!h)return;e.preventDefault();h.classList.add('p');const c=h.dataset.h;send(c);clearInterval(hi);hi=setInterval(()=>step(c),40)});
+['pointerup','pointercancel','pointerleave'].forEach(ev=>document.addEventListener(ev,e=>{const h=document.querySelector('.hold.p');if(!h)return;h.classList.remove('p');clearInterval(hi);send('0')},true));
+$('#lang').onclick=()=>setLang(S.lang=='fa'?'en':'fa');
+$('#st').onclick=()=>{S.ok=false;scan();show('connect')};
+$('#rescan').onclick=scan;$('#demo').onclick=()=>{S.ok=true;S.demo=true;enter()};
+/* ---- boot ---- */
+setLang(S.lang);
+const fast=matchMedia('(prefers-reduced-motion:reduce)').matches;
+setTimeout(()=>{show('connect');scan()},fast?900:4300);
+document.addEventListener('deviceready',scan,false);
+</script>
+</body>
+</html>
